@@ -1,13 +1,14 @@
 print ("BUILD.bazel step 1")
 load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 print ("BUILD.bazel step 2")
+
 nodejs_binary(
   name = "app",
   node_modules = "@foo//:node_modules",
-  entry_point = "//app:main.js",
+  entry_point = "workspacename/main.js",
   data = [
     "@foo//:node_modules",
-    "//app:main.js",
+    "main.js"
   ],
   visibility = ["//visibility:public"],
 )
